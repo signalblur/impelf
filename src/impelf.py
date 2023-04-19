@@ -38,7 +38,7 @@ def main():
         elf_file = ELFFile(f)
         imported_symbols, libraries = get_imported_symbols_and_libraries(elf_file)
         elf_hash = create_hash(imported_symbols, libraries)
-        print(f'ELF hash: {elf_hash}')
+        print(elf_hash)
 
 
 if __name__ == '__main__':
