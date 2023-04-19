@@ -3,6 +3,11 @@ import hashlib
 from elftools.elf.elffile import ELFFile
 from elftools.elf.dynamic import DynamicSection
 
+def is_elf_binary(file):
+    magic_bytes = file.read(4)
+    file.seek(0)  # Reset file pointer to the beginning
+    return magic_bytes == b'\x7FELF'
+
 def get_imported_symbols_and_libraries(elf_file):
     imported_symbols = []
     libraries = []
@@ -35,6 +40,10 @@ def main():
         sys.exit(1)
 
     with open(sys.argv[1], 'rb') as f:
+        if not is_elf_binary(f):
+            print("Error: The input file is not an ELF binary.")
+            sys.exit(1)
+            
         elf_file = ELFFile(f)
         imported_symbols, libraries = get_imported_symbols_and_libraries(elf_file)
         elf_hash = create_hash(imported_symbols, libraries)
