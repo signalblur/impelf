@@ -7,6 +7,9 @@ lib
 lib64/
 lib64
 pyvenv.cfg
+sample
+sample1-m
+sample2-m
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
