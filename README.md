@@ -30,15 +30,15 @@ By analyzing an ELF binaries dynamic symbols (imported functions) and libraries,
 
 Imported symbols:
 
-    'printf'
-    'malloc'
-    'strcpy'
-    'strcmp'
+* `printf`
+* `malloc`
+* `strcpy`
+* `strcmp`
 
 Libraries:
 
-    'libc.so.6'
-    'libm.so.6'
+* `libc.so.6`
+* `libm.so.6`
 
 Using impelf.py, the `get_imported_symbols_and_libraries` function extracts the imported symbols and libraries from the ELF binary. The imported symbols and libraries are then returned as *two* separate lists.
 
