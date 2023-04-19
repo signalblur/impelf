@@ -1,3 +1,13 @@
+bin/
+bin
+include
+include/
+lib/
+lib
+lib64/
+lib64
+pyvenv.cfg
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
