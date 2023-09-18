@@ -2,6 +2,7 @@ import sys
 import hashlib
 from elftools.elf.elffile import ELFFile
 from elftools.elf.dynamic import DynamicSection
+from elftools.elf.sections import SymbolTableSection
 
 def is_elf_binary(file):
     magic_bytes = file.read(4)
@@ -22,7 +23,7 @@ def get_imported_symbols_and_libraries(elf_file):
                     break
 
     for section in elf_file.iter_sections():
-        if hasattr(section, 'iter_symbols'):
+        if isinstance(section, SymbolTableSection):
             for symbol in section.iter_symbols():
                 if symbol.name and symbol.entry.st_info.type == 'STT_FUNC':
                     imported_symbols.append(symbol.name)
