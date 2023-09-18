@@ -25,8 +25,8 @@ def get_imported_symbols_and_libraries(elf_file):
     for section in elf_file.iter_sections():
         if isinstance(section, SymbolTableSection):
             for symbol in section.iter_symbols():
-               if symbol.name and symbol.entry.st_info.type == 'STT_FUNC':
-                  imported_symbols.append(symbol.name)
+                if symbol.name and symbol.entry.st_info.type == 'STT_FUNC':
+                    imported_symbols.append(symbol.name)
 
     return imported_symbols, libraries
 
