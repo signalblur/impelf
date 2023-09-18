@@ -17,9 +17,6 @@ def get_imported_symbols_and_libraries(elf_file):
             for tag in section.iter_tags():
                 if tag.entry.d_tag == 'DT_NEEDED':
                     libraries.append(tag.needed)
-                elif tag.entry.d_tag == 'DT_STRTAB':
-                    string_table = elf_file.get_section_by_offset(tag.entry.d_val)
-                    break
 
     for section in elf_file.iter_sections():
         if hasattr(section, 'iter_symbols'):
