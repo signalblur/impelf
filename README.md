@@ -1,5 +1,7 @@
 # ImpELF
 
+## Archived - I did not realize an implementation of this had already been created and was more widely used. Please refer to telfhash - https://github.com/trendmicro/telfhash
+
 As someone that primarily does linux detection, I was frustrated that there wasn't an equivalent of an imphash for linux ELF binaries. So, I decided to make one myself. **Introducing** ImpELF. ImpELF is a Python-based ELF hashing utility that generates unique fingerprints for ELF binaries using their imported functions and libraries, aiding in malware analysis and similarity detection.
 
 ## Installation
